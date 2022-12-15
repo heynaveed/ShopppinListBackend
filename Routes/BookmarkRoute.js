@@ -5,11 +5,6 @@ const Bookmark=Router();
 
 Bookmark.post("/",async(req,res)=>{
     const {title,quantity,priority,description,date,timestamp}=req.body;
-   const x=BookMarkModel.find({timestamp});
-  if(x){
-    res.send("Already BookMarked");
-  }
-  else{
     const newbookmark=new BookMarkModel({
         title:title,
         quantity:quantity,
@@ -20,7 +15,6 @@ Bookmark.post("/",async(req,res)=>{
         })
         newbookmark.save();
         res.send("Booked Marked Successfully");
-  }
 })
 
 Bookmark.get("/",async(req,res)=>{
